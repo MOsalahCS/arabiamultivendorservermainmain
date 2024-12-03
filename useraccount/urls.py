@@ -13,6 +13,12 @@ urlpatterns = router.urls
 
 urlpatterns = [
     path('', include(router.urls)),
+
+    
+    path('auth/', include('dj_rest_auth.urls')),  # Login/logout
+    path('auth/registration/', include('dj_rest_auth.registration.urls')),  # Registration
+    path('auth/social/', include('allauth.socialaccount.urls')),  # Social login
+
     path("login/", views.CustomTokenObtainPairView.as_view(), name="login"),
     path("token/refresh/", TokenRefreshView.as_view(), name="refresh"),
     path("buyer/register/", views.BuyerRegisterView.as_view(), name="buyer-register"),

@@ -60,6 +60,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
 ]
 SITE_ID = 1
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -84,6 +86,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "dj_rest_auth.authentication.JWTAuthentication",
     ),
 }
 
